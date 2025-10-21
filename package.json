@@ -1,0 +1,23 @@
+{
+  "name": "project-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corvusmandatum/project-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corvusmandatum/project-tracker/issues"
+  },
+  "homepage": "https://github.com/corvusmandatum/project-tracker#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink&display=swap');
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrollbars from messing up layout */
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* === FLEXBOX REFACTOR START === */
+.menu-panel {
+    width: 40%;
+    height: 100%;
+    border-right: 1px solid #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-panel > h1 {
+    flex-shrink: 0; /* Prevent h1 from shrinking */
+    font-family: 'Bitcount Single Ink', sans-serif;
+    font-size: 28px;
+    text-align: center;
+}
+
+#control-toggle {
+    order: 2; /* Display after h1 */
+    margin-top: 20px; /* Space below h1 */
+    margin-bottom: 10px; /* Space between buttons */
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+
+#progress-toggle {
+    order: 3; /* Display after control-toggle */
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+}
+
+#task-menu {
+    order: 4; /* Display after buttons */
+    flex-grow: 1; /* Take remaining space */
+    overflow-y: auto; /* Enable scrolling for the list */
+    margin-top: 20px; /* Space below buttons */
+}
+
+#progress-toggle.active,
+#control-toggle.active {
+    background-color: #fff;
+    color: #000;
+}
+/* === FLEXBOX REFACTOR END === */
+
+.content-panel {
+    width: 60%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.content-panel.inverted {
+    background-color: #fff;
+    color: #000;
+}
+
+.content-panel.inverted h1,
+.content-panel.inverted h2 {
+    border-bottom-color: #000;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+}
+
+#task-menu ul {
+    list-style-type: none;
+    padding-left: 15px;
+}
+
+#task-menu li {
+    padding: 5px 0;
+}
+
+#task-menu .program > span,
+#task-menu .project > span {
+    cursor: pointer;
+}
+
+#task-menu .task {
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+#task-menu .task:hover {
+    background-color: #333;
+}
+
+#task-menu ul {
+    display: none;
+}
+
+#task-menu .program.open > ul,
+#task-menu .project.open > ul {
+    display: block;
+}
+
+.description-section {
+    margin-top: 20px;
+}
+
+/* Sticky Header */
+.content-header {
+    position: sticky;
+    top: -40px; /* Counteracts the panel's 40px padding */
+    padding-top: 40px; /* Restores the padding visually */
+    background-color: #000;
+    z-index: 10;
+}
+
+.content-panel.inverted .content-header {
+    background-color: #fff;
+}
+
+
+/* Calendar Styles */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 20px;
+    font-size: 12px;
+}
+
+.calendar-month table {
+    width: 100%;
+    text-align: center;
+}
+
+.calendar-day.project-day {
+    box-shadow: inset 0 0 0 1px #fff;
+}
+
+.content-panel.inverted .calendar-day.project-day {
+    box-shadow: inset 0 0 0 1px #000;
+}
+
+.calendar-day.task-day {
+    background-color: #fff;
+    color: #000;
+}
+
+.content-panel.inverted .calendar-day.task-day {
+    background-color: #000;
+    color: #fff;
+}
+
+.calendar-day.today {
+    box-shadow: inset 0 0 0 1px #fff; /* A border that doesn't affect layout */
+}
+
+.content-panel.inverted .calendar-day.today {
+    box-shadow: inset 0 0 0 1px #000;
+}
+
+.selected {
+    font-weight: bold;
+}
+
+/* Control View Styles */
+.control-zones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-zone-a,
+.control-zone-b {
+    width: 48%;
+}
+
+.proportion-result {
+    font-size: 5em;
+    text-align: center;
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 20px auto;
+    border: 1px solid #fff;
+}
